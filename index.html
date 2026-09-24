@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enforcement After the Ruling — PLS210 Research Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDEAE0;
+    --paper-raised: #F5F3EC;
+    --ink: #1E2A24;
+    --ink-soft: #4A544D;
+    --rule: #C9C2AE;
+    --documented: #3B5D42;
+    --invoked: #8A8574;
+    --gold: #9C7A29;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--ink); text-decoration-color:var(--rule); text-underline-offset:3px;}
+  a:hover{text-decoration-color:var(--ink);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  h1,h2,h3{
+    font-family:'Newsreader', Georgia, serif;
+    font-weight:500;
+    line-height:1.2;
+    margin:0;
+  }
+
+  /* ---------- Hero ---------- */
+
+  header.hero{
+    padding:76px 0 56px;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .kicker{
+    font-size:15px;
+    color:var(--ink-soft);
+    margin:0 0 28px;
+    max-width:44ch;
+  }
+
+  .question{
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(28px, 4.4vw, 42px);
+    letter-spacing:-0.01em;
+    margin:0 0 26px;
+  }
+
+  .subhead{
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:58ch;
+    margin:0 0 30px;
+  }
+
+  .meta{
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .meta .editable{
+    border-bottom:1px dashed var(--rule);
+  }
+
+  /* ---------- Sections ---------- */
+
+  section{
+    padding:56px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  section h2{
+    font-size:28px;
+    margin-bottom:22px;
+  }
+
+  section h3{
+    font-size:19px;
+    font-style:italic;
+    font-weight:500;
+    margin:34px 0 14px;
+  }
+
+  section p{margin:0 0 16px;}
+  section p:last-child{margin-bottom:0;}
+
+  .lede{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin-bottom:28px;
+  }
+
+  /* ---------- Note / aside boxes ---------- */
+
+  .note{
+    border-left:2px solid var(--ink);
+    padding:2px 0 2px 20px;
+    margin:24px 0;
+    color:var(--ink-soft);
+    font-size:15.5px;
+  }
+
+  /* ---------- Documented / Invoked vocabulary ---------- */
+  /* This is the one deliberate visual device on the page: it mirrors the
+     project's own analytical distinction between confirmed institutional
+     action and unconfirmed public statement. */
+
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13.5px;
+    padding:3px 10px 3px 8px;
+    border-radius:2px;
+    margin-bottom:14px;
+  }
+  .tag::before{
+    content:"";
+    width:9px;
+    height:9px;
+    flex:none;
+  }
+  .tag.documented{
+    color:var(--documented);
+    border:1px solid var(--documented);
+  }
+  .tag.documented::before{background:var(--documented);}
+  .tag.invoked{
+    color:var(--ink-soft);
+    border:1px dashed var(--invoked);
+  }
+  .tag.invoked::before{
+    background:transparent;
+    border:1px dashed var(--invoked);
+  }
+
+  .callout{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    padding:22px 24px;
+    margin:20px 0;
+  }
+  .callout p{font-size:15.5px;}
+  .callout p:first-of-type{margin-top:0;}
+
+  /* ---------- Literature review ---------- */
+
+  .cluster-label{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+
+  .source{
+    margin:24px 0 32px;
+    padding-top:2px;
+  }
+
+  .citation{
+    font-size:15px;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+    font-style:italic;
+  }
+
+  /* ---------- Typology list ---------- */
+
+  .channel{
+    margin:28px 0;
+  }
+  .channel-name{
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  ul.sort-list{
+    margin:16px 0;
+    padding-left:0;
+    list-style:none;
+  }
+  ul.sort-list li{
+    padding-left:22px;
+    position:relative;
+    margin-bottom:12px;
+  }
+  ul.sort-list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:8px;
+    width:9px;
+    height:9px;
+  }
+  ul.sort-list li.op::before{background:var(--documented);}
+  ul.sort-list li.inv::before{border:1px dashed var(--invoked);}
+
+  /* ---------- Reflection (ungraded) ---------- */
+
+  .ungraded-flag{
+    display:inline-block;
+    font-size:13px;
+    color:var(--ink-soft);
+    border:1px solid var(--rule);
+    padding:3px 10px;
+    margin-bottom:18px;
+  }
+
+  /* ---------- Footer / references ---------- */
+
+  footer{
+    padding:48px 0 80px;
+  }
+  footer h2{
+    font-size:19px;
+    font-style:italic;
+    margin-bottom:18px;
+  }
+  .refs{
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .refs .group{margin-bottom:18px;}
+  .refs .group-label{
+    font-size:13px;
+    text-transform:none;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .refs p{margin:0 0 8px; padding-left:20px; text-indent:-20px;}
+
+  @media (max-width:640px){
+    header.hero{padding:52px 0 40px;}
+    section{padding:40px 0;}
+    .wrap{padding:0 20px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">A research proposal for PLS210, Political Science Research Methods.</p>
+    <h1 class="question">Between Kazakhstan's 2024 Supreme Court rulings barring the exclusion of individual hijab-wearing students and 2026, did enforcement of the hijab restriction shift toward private-school licensing status?</h1>
+    <p class="subhead">A descriptive study of how enforcement adapts when a court closes off the state's usual tool — traced through Kazakhstan's school hijab restriction, 2024 to 2026.</p>
+    <p class="meta">Presented by <span class="editable">[your name]</span> · Fall 2026</p>
+  </div>
+</header>
+
+<section id="positioning">
+  <div class="wrap">
+    <h2>Positioning</h2>
+    <p class="lede">This project sits in the descriptive tradition, not the positivist or interpretivist ones.</p>
+    <p>It maps an institutional shift — from student-level to school-level enforcement — that has not yet been documented in scholarly or journalistic record. It does this using objective, verifiable institutional evidence: court rulings, ministry statements, and licensing records. It does not test a generalizable causal relationship across many cases, which would make it positivist, and it does not analyze how officials or students subjectively make sense of the restriction, which would make it interpretivist.</p>
+    <p>The question is empirical, not normative: it asks whether enforcement shifted, not whether it should have. It is scoped to a specific population, place, and time — hijab-wearing students in Kazakhstan's private schools, 2024 to 2026 — and it is answerable regardless of outcome. A confirmed shift toward licensing and a null result, enforcement remaining at the individual level, are both complete, reportable findings. That the question holds up either way is itself part of why the design counts as descriptive rather than an argument built to reach one predetermined answer.</p>
+    <div class="note">
+      <p>A positivist instinct is present at the epistemological level — enforcement actions and licensing decisions are treated as objective, document-verifiable facts, not as meanings to be interpreted through actors' own accounts — but the project's tradition and design stay descriptive throughout.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contribution">
+  <div class="wrap">
+    <h2>Contribution</h2>
+    <p>This project helps explain how states adapt their enforcement mechanisms once a court closes off the tool they had been relying on — a pattern documented in other legal systems, but not yet traced through this case. It also tests something with real stakes for the people affected: how far public rhetoric about institutional escalation, an official naming a security agency or threatening a school's license, can outpace what is actually confirmed through formal, documented channels.</p>
+  </div>
+</section>
+
+<section id="literature">
+  <div class="wrap">
+    <h2>Literature review</h2>
+    <p class="lede">Two bodies of work frame this project: one on how states manage unfavorable court rulings, one on how secularism and hijab restrictions have played out elsewhere in the post-Soviet region.</p>
+
+    <p class="cluster-label">Mechanism — how states route around judicial constraints</p>
+
+    <div class="source">
+      <p class="citation">Ginsburg, Tom, and Tamir Moustafa, eds. <em>Rule by Law: The Politics of Courts in Authoritarian Regimes.</em> Cambridge University Press, 2008.</p>
+      <p>Pushes back on the assumption that courts in authoritarian states are mere instruments of the regime. The editors argue courts are real, semi-autonomous actors, which means regimes have to manage the risk of unfavorable rulings rather than simply dictate them. One technique they catalogue, drawn from a chapter by Peter Solomon, is under-enforcement: letting a ruling stand on paper while limiting its real-world effect. Kazakhstan's 2024 ruling protecting hijab-wearing students from exclusion is exactly this kind of unfavorable ruling — the editors' own call to extend this inquiry geographically is part of why this case is worth testing against their framework.</p>
+    </div>
+
+    <div class="source">
+      <p class="citation">Schotel, Bas. "Administrative Law as a Dual State: Authoritarian Elements of Administrative Law." <em>Hague Journal on the Rule of Law</em> (2021).</p>
+      <p>Argues administrative law is distinctively suited to give regimes a "legality bonus": actions like licensing decisions look procedurally normal and are technically reviewable, but take effect immediately and receive heavy judicial deference on technical questions, so real damage can be done long before any court challenge concludes. If Kazakhstan is leaning on school licensing rather than direct exclusion, this is close to a textbook application of that mechanism.</p>
+    </div>
+
+    <div class="source">
+      <p class="citation">Varol, Ozan O. "Stealth Authoritarianism." <em>Iowa Law Review</em> 100, no. 4 (2015): 1673–1742.</p>
+      <p>Argues that contemporary regimes increasingly maintain power not through visible coercion but through the same ordinary legal mechanisms democracies use, which gives repression a legitimate appearance and makes it harder to detect or contest. A shift from visibly excluding students to quietly pressuring a school's license would be a specific, local instance of this broader pattern.</p>
+    </div>
+
+    <p class="cluster-label" style="margin-top:44px;">Context — secularism and hijab restrictions in the post-Soviet region</p>
+
+    <div class="source">
+      <p class="citation">Bashirov, Galib. "The Politics of the Hijab in Post-Soviet Azerbaijan." <em>Nationalities Papers</em> (2020).</p>
+      <p>Examines a closely comparable 2010 case in which Azerbaijan pursued a hijab ban in schools through the same legal route Kazakhstan later used: a school uniform requirement under the Law of Education. Bashirov argues the government's secularism-versus-theocracy framing functioned more as a nation-building discourse than an accurate description of religious practice. This is useful context for why Kazakhstan's ministry reaches for "secularism" as a justification, but it is a discourse-analysis study, not a model for this project's documentary method.</p>
+    </div>
+
+    <div class="source">
+      <p class="citation">Boron, Usmon. "'And I Believe in Signs': Soviet Secularity and Islamic Tradition in Kyrgyzstan." <em>Comparative Studies in Society and History</em> 66, no. 2 (2024): 342–368.</p>
+      <p>The most indirect source here. An anthropological study of how Soviet-era secularization dismantled most Islamic institutions in Central Asia by the 1930s, leaving a non-observant, ritual-centered form of Islam that persists today. It does not address law or enforcement directly. It is included as background for why "secularism" carries such institutional weight in the region: not a fresh policy invention, but a century-old reflex.</p>
+    </div>
+  </div>
+</section>
+
+<section id="framework">
+  <div class="wrap">
+    <h2>Categories and typology</h2>
+    <p class="lede">Two enforcement channels, sorted the same way across every institution named in the evidence.</p>
+
+    <div class="channel">
+      <p class="channel-name">Individual-level channel — already documented</p>
+      <p>After the 2024 ruling barred exclusion, district courts have upheld administrative fines against parents under Kazakhstan's Code of Administrative Offenses, for failing to ensure a child complies with the school uniform rule. This channel survived the ruling and is treated here as the documented baseline, not as this project's open question.</p>
+    </div>
+
+    <div class="channel">
+      <p class="channel-name">Institutional-level channel — what this project tests</p>
+      <p>Pressure applied to a private school's operating license rather than to the individual student. Within this channel, every piece of evidence is sorted the same way, applied consistently across the Ministry of Education, regional akimat education departments, and the KNB:</p>
+      <ul class="sort-list">
+        <li class="op"><strong>Operational</strong> — backed by an inspection, a court filing, or a formal directive.</li>
+        <li class="inv"><strong>Invoked-only</strong> — an official names the institution or threat in public discourse, with no evidence of institutional follow-through.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <p><strong>What counts as documented.</strong> A written statement, an official record, or a claim independently corroborated by a second source. A single verbal mention at a press briefing does not meet this bar on its own.</p>
+    </div>
+
+    <h3>The typology applied to a live example</h3>
+    <span class="tag invoked">Invoked, not yet operational</span>
+    <p>In September 2026, Kazakhstan's Education Minister stated publicly that private schools permitting the hijab could lose their operating licenses, and separately named the KNB as involved in monitoring compliance alongside regional akimats. By the standard above, this is currently coded as invoked: a real, on-record public statement, but not yet tied to any independently confirmed inspection, license action, or court record. Whether it moves to operational before this project concludes is an open question, not a foregone one.</p>
+  </div>
+</section>
+
+<section id="transparency">
+  <div class="wrap">
+    <h2>AI transparency statement</h2>
+    <p>I used AI throughout the development of this proposal — mainly to find and vet academic literature, pressure-test my scoping decisions like why the study starts in 2024, and check the precision of specific claims, including catching that "under-enforcement" is one technique named within the Ginsburg and Moustafa volume, not their central argument. AI also helped me search for current developments, which is how I found the Education Minister's recent statement on school licensing. For this page itself, I used AI to help write and structure the code, since I don't have a coding background — I directed the content and reviewed every claim, but the implementation was AI-assisted.</p>
+  </div>
+</section>
+
+<section id="reflection">
+  <div class="wrap">
+    <span class="ungraded-flag">Ungraded</span>
+    <h2>What working with AI helped me understand, and what I still don't understand about my research design</h2>
+    <p>Working with AI helped me understand the difference between a topic and an actual researchable question, and forced me to be precise about what descriptive epistemology really requires: documentable institutional facts, not a causal theory or an interpretation of people's motives. It also helped me see that my evidence sources and my literature review are two different things doing two different jobs.</p>
+    <p>What I still don't fully know: whether a two-year window is really long enough to detect a genuine institutional shift, given how slowly enforcement patterns can surface. I also don't know how much weight to give a single, very recent ministerial statement against the documentation standard I set for myself — it's real evidence, but not yet the kind of confirmed, operational case my own framework calls for. And I'm still not certain how far it's fair to apply theories built on European or American legal systems to a Central Asian case they weren't designed for.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2>References</h2>
+    <div class="refs">
+      <div class="group">
+        <p class="group-label">Literature</p>
+        <p>Ginsburg, Tom, and Tamir Moustafa, eds. <em>Rule by Law: The Politics of Courts in Authoritarian Regimes.</em> Cambridge University Press, 2008.</p>
+        <p>Schotel, Bas. "Administrative Law as a Dual State: Authoritarian Elements of Administrative Law." <em>Hague Journal on the Rule of Law</em> (2021).</p>
+        <p>Varol, Ozan O. "Stealth Authoritarianism." <em>Iowa Law Review</em> 100, no. 4 (2015): 1673–1742.</p>
+        <p>Bashirov, Galib. "The Politics of the Hijab in Post-Soviet Azerbaijan." <em>Nationalities Papers</em> (2020).</p>
+        <p>Boron, Usmon. "'And I Believe in Signs': Soviet Secularity and Islamic Tradition in Kyrgyzstan." <em>Comparative Studies in Society and History</em> 66, no. 2 (2024): 342–368.</p>
+      </div>
+      <div class="group">
+        <p class="group-label">Primary and evidentiary sources</p>
+        <p>Kazakhstan Supreme Court, ruling of September 2024, on exclusion of hijab-wearing students.</p>
+        <p>Adilet (adilet.zan.kz), official legal information system of the Republic of Kazakhstan.</p>
+        <p>Electronic Government of the Republic of Kazakhstan (egov.kz), "Is it allowed to wear hijab in schools?"</p>
+        <p>RFE/RL, "Central Asia's Hijab Debate Flares Up As Schools Reopen," September 2026.</p>
+        <p>Times of Central Asia, "Kazakhstan Hijab Debate Exposes Divide Over Secularism," September 2026.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
